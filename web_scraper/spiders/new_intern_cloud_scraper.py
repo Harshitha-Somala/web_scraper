@@ -1,14 +1,12 @@
 #!python3.10
-import requests
-import itertools
 import cloudscraper
 from bs4 import BeautifulSoup
 import os
 
-import argparse, sys
+import argparse
 
 
-file_name = 'readme.html'
+file_name = 'jobs_posted.html'
 
 if os.path.exists(file_name):
     os.remove(file_name)
@@ -36,8 +34,6 @@ def extract_jobs_from_indeed(job="data+scientist+intern", num_of_pages=1):
 
     filter_words = ["fccid"]
     print(soups)
-    import pdb
-    pdb.set_trace()
     for soup in soups:
         extract_job_list(soup, filter_words)
 
