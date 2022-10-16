@@ -16,12 +16,14 @@ def extract_jobs_from_indeed(job="data+scientist+intern", num_of_pages=1):
     scraper = cloudscraper.create_scraper() 
 
     search_urls = [
-        f"https://www.indeed.com/jobs?q={job}&l=&vjk=d99fe42f8e6e2bc5"
+        # f"https://www.indeed.com/jobs?q={job}&l=&vjk=d99fe42f8e6e2bc5"
+        f"https://www.indeed.com/jobs?q={job}&l=&vjk=2c07e7eda92012f7"
     ]
 
     for idx in range(2, num_of_pages+1):
         search_urls.append(
-            f"https://www.indeed.com/jobs?q={job}&l=&&start={idx}0&vjk=d99fe42f8e6e2bc5"
+            # f"https://www.indeed.com/jobs?q={job}&l=&&start={idx}0&vjk=d99fe42f8e6e2bc5"
+            f"https://www.indeed.com/jobs?q={job}&l=&&start={idx}0&vjk=2c07e7eda92012f7"
         )
 
     pages = [
@@ -31,7 +33,8 @@ def extract_jobs_from_indeed(job="data+scientist+intern", num_of_pages=1):
     soups = [
         BeautifulSoup(page.content, "html.parser") for page in pages
     ]
-
+    import pdb
+    pdb.set_trace()
     filter_words = ["fccid"]
     print(soups)
     for soup in soups:
