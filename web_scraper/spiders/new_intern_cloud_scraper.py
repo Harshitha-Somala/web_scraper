@@ -33,8 +33,7 @@ def extract_jobs_from_indeed(job="data+scientist+intern", num_of_pages=1):
     soups = [
         BeautifulSoup(page.content, "html.parser") for page in pages
     ]
-    import pdb
-    pdb.set_trace()
+
     filter_words = ["fccid"]
     print(soups)
     for soup in soups:
